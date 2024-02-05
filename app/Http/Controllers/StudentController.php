@@ -13,6 +13,9 @@ class StudentController extends Controller
     public static function index() {
         return view('student');
     }
+    public static function detail() {
+        return view('studentDetail');
+    }
 
     //Create
     public static function createData(Request $request){
@@ -32,14 +35,14 @@ class StudentController extends Controller
     //Read
 
     public static function getAll($id = 0){
-        $student = Student::all();
+        return Student::all();
 
 
-        return response()->json([
-            "total" => count($student),
-            "totalNotFiltered" =>count($student),
-            "rows" => $student
-        ]);
+        // return response()->json([
+        //     "total" => count($student),
+        //     "totalNotFiltered" =>count($student),
+        //     "rows" => $student
+        // ]);
     }
 
 

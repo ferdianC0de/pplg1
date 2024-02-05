@@ -18,7 +18,7 @@ use App\Http\Controllers\StudentController;
 Route::post('student/create', [StudentController::class, 'createData']);
 
 // read
-Route::get('student/all/{id?}', [StudentController::class, 'getAll']);
+Route::get('student/all/{id?}', [StudentController::class, 'getAll'])->name('getAllStudent');
 
 // update
 Route::put('student/update/{id}', [StudentController::class, 'updateData']);
