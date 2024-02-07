@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
 
-    public static function index() {
-        return view('student');
+    public static function pplg1() {
+        return view('pplg1.index');
     }
-    public static function detail() {
-        return view('studentDetail');
+
+    public static function pplg3() {
+        return view('pplg3.student');
     }
 
     //Create
@@ -35,14 +36,7 @@ class StudentController extends Controller
     //Read
 
     public static function getAll($id = 0){
-        return Student::all();
-
-
-        // return response()->json([
-        //     "total" => count($student),
-        //     "totalNotFiltered" =>count($student),
-        //     "rows" => $student
-        // ]);
+        return Student::with('getClass')->get();
     }
 
 

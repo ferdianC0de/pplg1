@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('student', [StudentController::class, 'pplg1'])->name('pplg1.student');
 
-Route::get('student', [StudentController::class, 'index']);
-Route::get('student/detail', [StudentController::class, 'detail']);
+Route::prefix('pplg3')->group(function () {
+    Route::get('student', [StudentController::class, 'pplg3'])->name('pplg3.student');
+
+});
