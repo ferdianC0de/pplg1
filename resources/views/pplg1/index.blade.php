@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
 <table
     id="table"
     data-toggle="table"

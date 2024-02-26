@@ -10,33 +10,49 @@ use Illuminate\Support\Facades\DB;
 class StudentController extends Controller
 {
 
-    public static function pplg1() {
-        return view('pplg1.index');
+    public static function index() {
+        return view('students.student');
     }
 
-    public static function pplg3() {
-        return view('pplg3.student');
+    public static function create(){
+        return view('students.create');
+    }
+    public static function createCoba(){
+        return view('pplg1.create');
     }
 
     //Create
     public static function createData(Request $request){
-        $student = new Student();
+        try {
+            $student = new Student();
 
-        $student->nama = $request->name;
-        $student->nis = $request->nis;
-        $student->umur = $request->umur;
-        $student->alamat = $request->alamat;
-        $student->class_id = 3;
+            $student->nama = $request->nama;
+            $student->nis = $request->nis;
+            $student->umur = $request->umur;
+            $student->alamat = $request->alamat;
+            $student->class_id = $request->class_id;
 
-        $student->save();
+            $student->save();
 
-        return $student;
+            return response()->json([
+                'message' => "Berhasil Tambah Data",
+                'data' => $student
+            ]);
+        } catch (\Exception $e) {
+            return $e;
+        }
+
     }
 
     //Read
 
-    public static function getAll($id = 0){
+    public static function getAll(){
         return Student::with('getClass')->get();
+    }
+
+    public static function edit($id){
+        $data = Student::find($id);
+        return view('students.edit', ['student' => $data]);
     }
 
 

@@ -3,6 +3,8 @@
 @section('title', 'student')
 
 @section('content')
+<a class="btn btn-success">Tambah Data</a>
+
 <table
   id="table"
   data-toggle="table"

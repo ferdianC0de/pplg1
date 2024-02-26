@@ -15,7 +15,7 @@ use App\Http\Controllers\StudentController;
 */
 
 // create
-Route::post('student/create', [StudentController::class, 'createData']);
+Route::post('student/create', [StudentController::class, 'createData'])->name('student.store');
 
 // read
 Route::get('student/all', [StudentController::class, 'getAll'])->name('getAllStudent');
@@ -24,4 +24,4 @@ Route::get('student/all', [StudentController::class, 'getAll'])->name('getAllStu
 Route::put('student/update/{id}', [StudentController::class, 'updateData']);
 
 // delete
-Route::delete('student/delete/{id}', [StudentController::class, 'destroyData']);
+Route::delete('student/delete/{id}', [StudentController::class, 'destroyData'])->name('student.delete');
