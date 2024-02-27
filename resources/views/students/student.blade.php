@@ -36,7 +36,7 @@ class="btn btn-success">Tambah Data</a>
 
     function buttonFormatter(value, row) {
         // console.log(row);
-        return "<button class='btn btn-warning'>Edit</button> "+
+        return `<a href='{{ url('student/edit/') }}/${row.id}' class='btn btn-warning'>Edit</a> `+
         " <button class='btn btn-danger' data-id='"+row.id+"' onclick='deleteData(this)' >Delete</button>"
     }
 
